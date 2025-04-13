@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "nitkc-espots-homepage/public",
+    "public": "nitkc-espots-homepage/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
