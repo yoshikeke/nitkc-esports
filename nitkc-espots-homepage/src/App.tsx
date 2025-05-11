@@ -1,41 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import { useTranslation } from 'react-i18next';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import React from 'react';
+
+const Home: React.FC = () => {
+  return <h2>Home</h2>;
+}
+const About: React.FC = () => {
+  return <h2>About</h2>;
+}
+const Contact: React.FC = () => {
+  return <h2>Contact</h2>;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-  const { t, i18n } = useTranslation();
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <Header />
+      <div >
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div className="text-center mt-10">
-      <h1 className="text-3xl font-bold">{t('welcome')}</h1>
-      <button onClick={() => i18n.changeLanguage('en')} className="mx-2">EN</button>
-      <button onClick={() => i18n.changeLanguage('ja')} className="mx-2">JA</button>
-    </div>
-    </>
+      asdf
+    </Router>
+   
   )
 }
 
